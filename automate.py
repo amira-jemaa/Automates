@@ -27,11 +27,11 @@ class Automate(AutomateBase):
         rend la liste des états accessibles à partir de la liste d'états
         listStates par l'étiquette lettre
         """
-        successeurs = []
-        for state in listStates:
-            for t in self.getListTransitionsFrom(state):
-                if t.etiquette == lettre and t.stateDest not in successeurs:
-                    successeurs.append(t.stateDest)
+        successeurs = [] 
+        for state in listStates: #Parcourir la liste des etats 
+            for t in self.getListTransitionsFrom(state): # parcourir  la liste des transitions sortant de l etat passee en argument
+                if t.etiquette == lettre and t.stateDest not in successeurs:  #Parcourir la liste des successeurs 
+                    successeurs.append(t.stateDest) #Ajouter un succeeseur ssi il existe pas deja pour ne pas avoir des doublons 
         return successeurs
 
     """ Définition d'une fonction déterminant si un mot est accepté par un automate.
